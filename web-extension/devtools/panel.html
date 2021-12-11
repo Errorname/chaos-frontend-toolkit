@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="panel.css" />
+
+    <script src="utils/storage.js" defer></script>
+    <script src="utils/experiments.js" defer></script>
+    <script src="utils/navigation.js" defer></script>
+    <script src="utils/inputs.js" defer></script>
+    <script src="utils/inject.js" defer></script>
+    <script src="panel.js" defer></script>
+  </head>
+  <body>
+    <nav>
+      <div class="menu">
+        <a href="#title" class="title">
+          <span class="small-layout">CFT</span>
+          <span>Chaos<br />Frontend Toolkit</span>
+        </a>
+        <hr />
+        <a href="#network">
+          <img src="../icons/wifi.svg" alt="" />
+          <span>Network</span>
+        </a>
+        <a href="#localization">
+          <img src="../icons/message-circle.svg" alt="" />
+          <span>Localization</span>
+        </a>
+        <a href="#timers">
+          <img src="../icons/clock.svg" alt="" />
+          <span>Timers</span>
+        </a>
+        <a href="#history">
+          <img src="../icons/rewind.svg" alt="" />
+          <span>History</span>
+        </a>
+        <a href="#inputs">
+          <img src="../icons/mouse-pointer.svg" alt="" />
+          <span>Inputs</span>
+        </a>
+        <a href="#accessibility">
+          <img src="../icons/eye.svg" alt="" />
+          <span>Accessibility</span>
+        </a>
+      </div>
+      <div class="links">
+        <a
+          href="https://github.com/Errorname/chaos-frontend-toolkit"
+          rel="noopener noreferrer"
+          target="_blank"
+          aria-label="Github chaos-frontend-toolkit"
+        >
+          <img src="../icons/github.svg" alt="" />
+        </a>
+        <a
+          href="https://twitter.com/Errorname_"
+          rel="noopener noreferrer"
+          target="_blank"
+          aria-label="Twitter Errorname"
+        >
+          <img src="../icons/twitter.svg" alt="" />
+        </a>
+      </div>
+    </nav>
+    <main>
+      <header id="title">
+        <img src="../icons/flask-large.png" alt="" />
+        <h1>Chaos Frontend Toolkit</h1>
+        <p>
+          A set of tools to <b>break your web apps</b> and, in doing so,
+          <b>find ways to improve them</b>.
+        </p>
+        <small
+          ><span class="emoji">⚠️</span> This extension is experimental!
+          <span class="emoji">⚠️</span></small
+        >
+      </header>
+      <section id="network">
+        <h2>
+          <img src="../icons/wifi.svg" alt="" />
+          <span>Network</span>
+        </h2>
+        <blockquote>
+          Web apps are heavily dependent on the network to properly function. What happens when a
+          user use your app through <b>a slow 3G network</b>? Or <b>an unstable WiFi</b>? And what
+          happens when your <b>CDN is unresponsive</b>? Will you have a blank page or a graceful
+          error handling?
+        </blockquote>
+        <article>
+          <h3>
+            <label class="switch"
+              ><input type="checkbox" data-value="requestDelaying.enabled" /><span></span
+            ></label>
+            <span>Request delaying</span>
+          </h3>
+          <small
+            >Randomly delays your http requests for up to
+            <span data-bind="requestDelaying.maxDelay">X</span>
+            milliseconds.</small
+          >
+          <ul>
+            <li>
+              <div class="option">
+                <label>Max delay in milliseconds</label>
+                <div class="input-plus-minus" data-value="requestDelaying.maxDelay">
+                  <button>-</button>
+                  <input type="text" />
+                  <button>+</button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="option">
+                <label>Probability of delay <small>(between 0 and 1)</small></label>
+                <div class="input-plus-minus" data-value="requestDelaying.probabilityOfDelay">
+                  <button>-</button>
+                  <input type="text" />
+                  <button>+</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </article>
+        <article>
+          <h3>
+            <label class="switch"
+              ><input type="checkbox" data-value="requestFailing.enabled" /><span></span
+            ></label>
+            <span>Request failing</span>
+          </h3>
+          <small>Randomly fails your http requests.</small>
+          <ul>
+            <li>
+              <div class="option">
+                <label>Probability of fail <small>(between 0 and 1)</small></label>
+                <div class="input-plus-minus" data-value="requestFailing.probabilityOfFail">
+                  <button>-</button>
+                  <input type="text" />
+                  <button>+</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </article>
+        <article>
+          <h3>
+            <label class="switch"
+              ><input type="checkbox" data-value="requestDenylist.enabled" /><span></span
+            ></label>
+            <span>Denylist</span>
+          </h3>
+          <small>Fails every http requests from this regex list:</small>
+          <div class="regex-list" data-value="requestDenylist.list">
+            <ul></ul>
+            <ul>
+              <li>
+                <div class="option">
+                  <input type="text" class="input-regex" placeholder="cdn.my-app.com" />
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </section>
+      <section id="localization">
+        <h2>
+          <img src="../icons/message-circle.svg" alt="" />
+          <span>Localization</span>
+        </h2>
+        <blockquote>
+          Adding internationalization to your app can break it in many ways. Can your design and
+          components handle
+          <b>verbose languages</b>? Will <b>RTL (right-to-left)</b> languages break your layout?
+        </blockquote>
+        <article>
+          <h3>
+            <label class="switch"
+              ><input type="checkbox" data-value="pseudoLocalization.enabled" /><span></span
+            ></label>
+            <span>Pseudo-localization</span>
+          </h3>
+          <small>
+            Applies
+            <a
+              href="https://en.wikipedia.org/wiki/Pseudolocalization"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Pseudolocalization</a
+            >
+            to every text of your app. (By
+            <a
+              href="https://github.com/tryggvigy/pseudo-localization"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tryggvigy</a
+            >)
+          </small>
+          <ul>
+            <li>
+              <div class="option">
+                <label>Strategy applied</label>
+                <select data-value="pseudoLocalization.strategy">
+                  <option value="accented">Accented</option>
+                  <option value="bidi">Bidi</option>
+                </select>
+              </div>
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section id="timers">
+        <h2>
+          <img src="../icons/clock.svg" alt="" />
+          <span>Timers</span>
+        </h2>
+        <blockquote>
+          We would expect one second to be always equal to one second. However, this may not always
+          be the case! When your <b>app is out of focus</b> for a long time, the
+          <b>browser may decide to slow the internal timers</b> of the tab: Your timeouts or
+          intervals will take longer to trigger.
+        </blockquote>
+        <article>
+          <h3>
+            <label class="switch"
+              ><input type="checkbox" data-value="timerThrottling.enabled" /><span></span
+            ></label>
+            <span>Timer throttling</span>
+          </h3>
+          <small>
+            Randomly adds or removes up to
+            <span data-bind="timerThrottling.maxDeviationDelay">X</span>
+            milliseconds to your timeout and intervals.
+          </small>
+          <ul>
+            <li>
+              <div class="option">
+                <label>Max delay deviation in milliseconds</label>
+                <div class="input-plus-minus" data-value="timerThrottling.maxDeviationDelay">
+                  <button>-</button>
+                  <input type="text" />
+                  <button>+</button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="option">
+                <label>Probability of delay <small>(between 0 and 1)</small></label>
+                <div class="input-plus-minus" data-value="timerThrottling.probabilityOfDelay">
+                  <button>-</button>
+                  <input type="text" />
+                  <button>+</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section id="history">
+        <h2>
+          <img src="../icons/rewind.svg" alt="" />
+          <span>History</span>
+        </h2>
+        <blockquote>
+          The user journey through an app is often thought to be <b>one-way only</b>. However, we
+          should not forget that the user can go back in time and revisit previous pages. Are our
+          apps capable of handling a <b>bi-directional user journey</b> or will it break a
+          multi-page form?
+        </blockquote>
+        <article>
+          <h3>
+            <label class="switch"
+              ><input type="checkbox" data-value="historySwitch.enabled" /><span></span
+            ></label>
+            <span>Random history navigation</span>
+          </h3>
+          <small
+            >Randomly navigates backward or forward in the app history every
+            <span data-bind="historySwitch.interval">X</span> seconds.</small
+          >
+          <ul>
+            <li>
+              <div class="option">
+                <label>Interval in seconds</label>
+                <div class="input-plus-minus" data-value="historySwitch.interval">
+                  <button>-</button>
+                  <input type="text" />
+                  <button>+</button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="option">
+                <label>Probability of navigation <small>(between 0 and 1)</small></label>
+                <div class="input-plus-minus" data-value="historySwitch.probabilityOfSwitch">
+                  <button>-</button>
+                  <input type="text" />
+                  <button>+</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section id="inputs">
+        <h2>
+          <img src="../icons/mouse-pointer.svg" alt="" />
+          <span>Inputs</span>
+        </h2>
+        <blockquote>
+          We <b>expect our user to behave</b> in a relatively coherent way. However, they often find
+          ways to <b>break our apps in unexpected ways</b>: Double click the submit form, clicking
+          everywhere, typing in the wrong input, etc. Let's simulate this comportment for ourselves!
+        </blockquote>
+        <article>
+          <h3>
+            <label class="switch"
+              ><input type="checkbox" data-value="doubleClicks.enabled" /><span></span
+            ></label>
+            <span>Double every click</span>
+          </h3>
+          <small>
+            Every user's click on your app will be doubled with a second click on the same target.
+          </small>
+          <ul>
+            <li>
+              <div class="option">
+                <label>Delay before second click</label>
+                <div class="input-plus-minus" data-value="doubleClicks.delay">
+                  <button>-</button>
+                  <input type="text" />
+                  <button>+</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </article>
+        <article>
+          <h3>
+            <label class="switch is-orange"
+              ><input type="checkbox" data-value="gremlins.enabled" /><span></span
+            ></label>
+            <span>Gremlins</span>
+          </h3>
+          <small>
+            Simulates random user actions (mouse and keyboard) by unleashing a horde of
+            <span data-bind="gremlins.numberOfWaves">X</span> gremlins on your app (1 every ~50ms).
+            (By
+            <a
+              href="https://github.com/marmelab/gremlins.js"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Marmelab</a
+            >)
+          </small>
+          <ul>
+            <li>
+              <div class="option">
+                <label>Number of gremlins</label>
+                <div class="input-plus-minus" data-value="gremlins.numberOfWaves">
+                  <button>-</button>
+                  <input type="text" />
+                  <button>+</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section id="accessibility">
+        <h2>
+          <img src="../icons/eye.svg" alt="" />
+          <span>Accessibility</span>
+        </h2>
+        <blockquote>
+          The latest WHO report about accessibility shows that around
+          <b>10% of the world population</b> has a visual or auditive deficiency. You cannot develop
+          a web app without <b>making sure that it is accessible</b> to this part of your user base.
+        </blockquote>
+        <article>
+          <h3>
+            <label class="switch"
+              ><input type="checkbox" data-value="blackAndWhite.enabled" /><span></span
+            ></label>
+            <span>Black and white</span>
+          </h3>
+          <small>Removes all colors from your app.</small>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

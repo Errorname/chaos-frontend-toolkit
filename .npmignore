@@ -1,0 +1,6 @@
+web-extension
+landing
+firebase*
+.firebase*
+.eslintrc.json
+bundle.sh

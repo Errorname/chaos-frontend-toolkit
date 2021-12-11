@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Chaos Frontend Toolkit",
+  "version": "1.0.0",
+  "homepage_url": "https://chaos-frontend-toolkit.web.app",
+
+  "description": "A set of tools to break your web apps and, in doing so, find ways to improve them.",
+  "icons": {
+    "128": "icons/flask-large.png"
+  },
+  "author": "Thibaud \"Errorname\" Courtoison <do.not.press.enter@gmail.com>",
+
+  "permissions": ["<all_urls>"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "web_accessible_resources": ["chaos-frontend-toolkit.js"],
+  "devtools_page": "devtools/devtools.html"
+}

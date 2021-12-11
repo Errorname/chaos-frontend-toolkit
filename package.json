@@ -1,0 +1,35 @@
+{
+  "name": "chaos-frontend-toolkit",
+  "version": "1.0.0",
+  "description": "A set of tools to break your web apps and, in doing so, find ways to improve them.",
+  "browser": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "serve": "http-server landing/",
+    "browserify": "browserify index.js -o web-extension/chaos-frontend-toolkit.js --standalone chaos-frontend-toolkit",
+    "bundle": "./bundle.sh",
+    "deploy": "firebase deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Errorname/chaos-frontend-toolkit.git"
+  },
+  "author": {
+    "name": "Thibaud Courtoison",
+    "email": "do.not.press.enter@gmail.com",
+    "url": "https://errorna.me"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "gremlins.js": "^2.2.0",
+    "pseudo-localization": "^2.1.1"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "firebase-tools": "^9.23.1"
+  }
+}

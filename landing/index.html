@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chaos Frontend Toolkit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A set of tools to break your web apps and, in doing so, find ways to improve them."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Chaos Frontend Toolkit" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chaos-frontend-toolkit.web.app" />
+    <meta property="og:image" content="https://chaos-frontend-toolkit.web.app/img/opengraph.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap"
+      rel="stylesheet"
+      media="nope!"
+      onload="this.media='all'"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Open Sans', sans-serif;
+        color: #333;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: 'Roboto', sans-serif;
+      }
+
+      a {
+        color: #296ddb;
+      }
+
+      .container {
+        flex-grow: 1;
+        margin: 0 auto;
+        position: relative;
+        width: auto;
+      }
+
+      @media screen and (min-width: 1024px) {
+        .container {
+          max-width: 960px;
+        }
+      }
+
+      @media screen and (min-width: 1216px) {
+        .container {
+          max-width: 1152px;
+        }
+      }
+
+      @media screen and (min-width: 1408px) {
+        .container {
+          max-width: 1344px;
+        }
+      }
+
+      .title-hero {
+        display: flex;
+        min-height: 60vh;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 2em 0;
+      }
+
+      .title {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .title img {
+        width: 250px;
+        max-width: 70vw;
+        margin: 3em;
+      }
+
+      .title h1 {
+        font-size: 3em;
+        padding: 0 0.9em;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .demo {
+        flex: 2;
+        display: flex;
+        flex-basis: 270px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .demo img,
+      .demo video {
+        width: 500px;
+        max-width: 80vw;
+        border-radius: 6px;
+        box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.02);
+      }
+
+      .subtitle {
+        text-align: center;
+        margin-bottom: 3em;
+        padding: 0 1em;
+        font-weight: 300;
+        line-height: 1.7;
+      }
+
+      .subtitle b {
+        background-color: #0088fa1a;
+        padding: 4px 6px;
+        font-weight: 300;
+        white-space: nowrap;
+      }
+
+      .badge {
+        display: flex;
+        justify-content: center;
+      }
+
+      .badge .placeholder {
+        width: 300px;
+        height: 90px;
+      }
+
+      .badge img {
+        width: 300px;
+      }
+
+      .alternatives p {
+        text-align: center;
+      }
+
+      hr {
+        margin: 3em 3em;
+        border: 0;
+        border-top: 1px solid #0088fa;
+      }
+
+      .faq {
+        display: flex;
+        margin-bottom: 2em;
+        flex-wrap: wrap;
+      }
+
+      .faq .categories {
+        flex: 2;
+        flex-basis: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .faq .categories img {
+        max-width: 250px;
+        border-radius: 6px;
+        box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.02);
+      }
+
+      .faq .questions {
+        flex: 3;
+        flex-basis: 600px;
+        display: flex;
+        flex-direction: column;
+        padding: 0 2em;
+      }
+
+      .faq h3 {
+        text-decoration: underline;
+        text-align: center;
+        color: hsl(0, 0%, 29%);
+      }
+
+      details {
+        padding: 0.5em 0.5em 0;
+        margin-bottom: 0.5em;
+      }
+
+      summary {
+        font-weight: bold;
+        margin: -0.5em -0.5em 0;
+        padding: 0.5em;
+        cursor: pointer;
+      }
+
+      details p {
+        margin: 0 1em 0.4em 1em;
+      }
+
+      details[open] {
+        padding: 0.5em;
+      }
+
+      details[open] summary {
+        margin-bottom: 0.5em;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title-hero">
+        <div class="title">
+          <img src="/img/flask.png" alt="Flask" />
+          <h1>Chaos Frontend Toolkit</h1>
+        </div>
+        <div class="demo">
+          <video autoplay loop muted playsinline>
+            <source src="/img/demo.webm" type="video/webm" />
+            <source src="/img/demo.mp4" type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos.
+          </video>
+        </div>
+      </div>
+      <h2 class="subtitle">
+        A set of tools to <b>break your web apps</b> and, in doing so,
+        <b>find ways to improve them</b>.
+      </h2>
+      <div class="installations">
+        <div class="badge"><div class="placeholder"></div></div>
+        <div class="alternatives">
+          <p>
+            <b>Also available on:</b>
+            <span class="chrome"
+              ><a href="#" target="_blank" rel="noreferrer noopener">Chrome</a>,
+            </span>
+            <span class="firefox"
+              ><a href="#" target="_blank" rel="noreferrer noopener">Firefox</a>,
+            </span>
+            <span class="edge"
+              ><a href="#" target="_blank" rel="noreferrer noopener">Edge</a>,
+            </span>
+            <a href="/chaos-frontend-toolkit-with-manifest-v2.zip" download>Zip file</a>
+          </p>
+        </div>
+      </div>
+      <hr />
+      <div class="faq">
+        <div class="categories">
+          <img src="/img/categories.png" alt="List of categories" />
+        </div>
+        <div class="questions">
+          <h3>Frequently Asked Questions</h3>
+          <details>
+            <summary>What is the purpose of this extension?</summary>
+            <p>
+              <i
+                >Chaos Engineering is the discipline of experimenting on a system in order to build
+                confidence in the system’s capability to withstand turbulent conditions in
+                production.</i
+              >
+            </p>
+            <p>
+              Even though it is usually applied to infrastructure, we can use Chaos Engineering
+              principles on the front end part of our web applications.
+            </p>
+            <p>
+              Network, Timers, History, Accessibility, Localization, Inputs: This web extension
+              bundles tools intended to break your apps.
+            </p>
+          </details>
+          <details>
+            <summary>How do I install this extension on my browser?</summary>
+            <p>
+              This extension is available on most browser extension stores. Click on the links above
+              to access the one corresponding to your browser, then follow their instructions.
+            </p>
+            <p>
+              If your browser isn't listed above, you can try installing it with the manual zip
+              available above, but it isn't guaranteed to work.
+            </p>
+          </details>
+          <details>
+            <summary>Where does this idea come from?</summary>
+            <p>
+              In October of 2021, I gave a talk at Devfest Nantes titled
+              <a
+                href="https://www.youtube.com/watch?v=29Z_P02aTWM"
+                target="_blank"
+                rel="noreferrer noopener"
+                >Art & Entropy: Introducing Chaos to your Frontend</a
+              >.
+            </p>
+            <p>
+              In it, I experiment with the usage of Chaos Engineering, but applied to the frontend.
+              Someone suggested to me that I build a web extension to bundle everything I presented
+              for easy usage.
+            </p>
+            <p>A few late evenings later and here we are!</p>
+          </details>
+          <details>
+            <summary>Is this extension open-source?</summary>
+            <p>
+              Yes it is! The license is GNU GPLv3 and you can find the code on
+              <a
+                href="https://github.com/Errorname/chaos-frontend-toolkit"
+                target="_blank"
+                rel="noreferrer noopener"
+                >Github</a
+              >.
+            </p>
+          </details>
+          <details>
+            <summary>That's a really nice web extension.</summary>
+            <p>
+              Thank you very much for such compliments! <br />
+              Consider following me on
+              <a href="https://twitter.com/errorname_" target="_blank" rel="noreferrer noopener"
+                >Twitter</a
+              >
+              in case I make more stuff like this!
+            </p>
+          </details>
+        </div>
+      </div>
+      <div class="footer">
+        <a href="/privacy.html">Privacy Policy</a> - Developed by
+        <a href="https://twitter.com/errorname_" target="_blank" rel="noreferrer noopener"
+          >Thibaud Courtoison</a
+        >
+      </div>
+    </div>
+    <script>
+      const browsers = {
+        chrome: {
+          badge: 'chrome_web_store.png',
+          alt: 'Chrome Web Store',
+          url: 'https://chrome.google.com/webstore/detail/10-tabs-no-more/dmfaiinkmobkepebifmaenddbbomhnkm',
+        },
+        edge: {
+          badge: 'microsoft_app_store.png',
+          alt: 'Microsoft App Store',
+          url: 'https://microsoftedge.microsoft.com/addons/detail/10-tabs-no-more/ijahekpgpelcgekdnlknpbaogemjfijn',
+        },
+        firefox: {
+          badge: 'mozilla_add_on_store.png',
+          alt: 'Mozilla Add-On Store',
+          url: 'https://addons.mozilla.org/en-US/firefox/addon/10-tabs-no-more/',
+        },
+      }
+
+      Object.keys(browsers).map((key) => {
+        // document.querySelector(`.installations .alternatives .${key} a`).href = browsers[key].url
+      })
+
+      const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime)
+      const isFirefox = typeof InstallTrigger !== 'undefined'
+      const isIE = /*@cc_on!@*/ false || !!document.documentMode
+      const isEdge = !isIE && !!window.StyleMedia
+      const isEdgeChromium = isChrome && navigator.userAgent.indexOf('Edg') != -1
+
+      let browser
+      if (isEdgeChromium) {
+        browser = 'edge'
+      } else if (isChrome) {
+        browser = 'chrome'
+      } else if (isFirefox) {
+        browser = 'firefox'
+      } else {
+        // Well.. Let's just show for Chrome anyway
+        browser = 'chrome'
+      }
+
+      document.querySelector(
+        '.installations .badge'
+      ).innerHTML = `<a href="${browsers[browser].url}" target="_blank" rel="noreferrer noopener"><img src="/img/${browsers[browser].badge}" alt="Download from ${browsers[browser].alt}"/></a>`
+
+      document.querySelector(`.installations .alternatives .${browser}`).remove()
+    </script>
+  </body>
+</html>

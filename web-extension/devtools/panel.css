@@ -1,0 +1,378 @@
+body {
+  display: flex;
+  height: 100vh;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji';
+
+  --background-color-hover: #0088fa1a;
+  --border-color: #eeeeee;
+  --blue: #0088fa;
+  /* --purple: #7967b1; */
+  --purple: #af5890;
+  --red: #f14668;
+  --orange: #f77d24;
+}
+
+.emoji {
+  font-family: initial;
+}
+
+/**
+ * Navigation
+ */
+
+nav {
+  width: 150px;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-color);
+}
+
+nav hr {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-top: 0;
+}
+
+nav .menu a {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  color: black;
+}
+
+nav .menu a img {
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
+}
+
+nav .menu a:not(.title):hover {
+  background-color: var(--background-color-hover);
+}
+
+nav .menu a:not(.title).active {
+  /* border-right: 3px solid var(--blue); */
+  background-color: var(--background-color-hover);
+}
+
+nav .menu a:not(.title).running {
+  border-right: 3px solid var(--red);
+}
+
+/* nav .menu a:not(.title).active.running {
+  border-right: 3px solid var(--purple);
+} */
+
+nav .menu a.title {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+  text-align: center;
+}
+
+nav .menu a.title .small-layout {
+  display: none;
+}
+
+nav .links {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+}
+
+nav .links a {
+  padding: 12px;
+  border-radius: 4px;
+}
+
+nav .links a:hover {
+  background-color: var(--background-color-hover);
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    width: 45px;
+  }
+
+  nav .menu a.title .small-layout {
+    display: inline;
+  }
+
+  nav .menu a span {
+    display: none;
+  }
+
+  nav .links {
+    flex-direction: column;
+  }
+}
+
+/**
+ * Main
+ */
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 20px 0 0 0;
+  font-size: 28px;
+}
+
+header p {
+  font-size: 16px;
+  text-align: center;
+}
+
+header small {
+  font-size: 13px;
+}
+
+section:not(#title) {
+  padding: 0 20px 0 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+section:not(#title).active h2 {
+  color: var(--blue);
+}
+
+section:last-of-type {
+  margin-bottom: 50px;
+}
+
+section h2 {
+  display: flex;
+  font-size: 18px;
+}
+
+section h2 img {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+section {
+  font-size: 12px;
+}
+
+section blockquote {
+  margin: 12px 12px 28px 12px;
+  font-size: 12px;
+  font-style: italic;
+  color: #333333;
+  line-height: 1.5;
+}
+
+section article {
+  padding: 0 0 12px 52px;
+}
+
+section article h3 {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin: 14px 0 8px 0;
+  margin-left: -42px;
+}
+
+section article h3 span {
+  font-size: 14px;
+}
+
+section article h3 .switch {
+  margin-right: 10px;
+}
+
+section article small {
+  font-size: 12px;
+}
+
+section article ul {
+  padding-left: 16px;
+}
+
+section article .option {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+  color: #333;
+}
+
+section article .option label {
+  margin-right: 5px;
+}
+
+section article .option label small {
+  font-size: 10px;
+}
+
+/**
+  * Form
+  */
+
+.input-plus-minus {
+  display: inline-flex;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+.input-plus-minus input {
+  width: 40px;
+  line-height: 1.5;
+  text-align: center;
+  border: none;
+  z-index: 1;
+}
+
+.input-plus-minus button {
+  font-size: 14px;
+  width: 26px;
+  border: none;
+  background-color: white;
+}
+
+.input-plus-minus button:not(:disabled):hover {
+  cursor: pointer;
+  background-color: var(--background-color-hover);
+}
+
+.regex-list ul:first-of-type {
+  margin-bottom: 0;
+  max-width: 300px;
+}
+
+.regex-list ul:nth-of-type(2) {
+  margin-top: 0;
+}
+
+.input-regex {
+  padding: 4px 8px;
+  width: 200px;
+  border: 0;
+  border-bottom: 1px solid var(--border-color);
+  line-height: 1.5;
+}
+
+.text-regex {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 4px 8px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.text-regex button {
+  margin-left: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 22px;
+  height: 22px;
+  border: none;
+  background-color: white;
+  color: var(--red);
+}
+
+.text-regex button:disabled {
+  color: #ccc;
+}
+
+.text-regex button:not(:disabled):hover {
+  background-color: var(--red);
+  color: white;
+  cursor: pointer;
+}
+
+select {
+  border: 1px solid var(--border-color);
+  padding: 4px;
+  cursor: pointer;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch span {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 17px;
+}
+
+.switch span:before {
+  position: absolute;
+  content: '';
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.switch input:checked + span {
+  background-color: var(--red);
+}
+
+.switch.is-orange input:checked + span {
+  background-color: var(--orange);
+}
+
+.switch input:focus + span {
+  box-shadow: 0 0 1px var(--red);
+}
+
+.switch.is-orange input:focus + span {
+  box-shadow: 0 0 1px var(--orange);
+}
+
+.switch input:checked + span:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
