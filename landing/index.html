@@ -345,22 +345,22 @@
         chrome: {
           badge: 'chrome_web_store.png',
           alt: 'Chrome Web Store',
-          url: 'https://chrome.google.com/webstore/detail/10-tabs-no-more/dmfaiinkmobkepebifmaenddbbomhnkm',
+          url: 'https://chrome.google.com/webstore/detail/chaos-frontend-toolkit/dnfmkfbhilcjkaeiapkjocbgghjiaknk',
         },
         edge: {
           badge: 'microsoft_app_store.png',
           alt: 'Microsoft App Store',
-          url: 'https://microsoftedge.microsoft.com/addons/detail/10-tabs-no-more/ijahekpgpelcgekdnlknpbaogemjfijn',
+          url: 'https://microsoftedge.microsoft.com/addons/detail/chaos-frontend-toolkit/bfoagdalinlnjmmnjnlcnkbmodchggne',
         },
         firefox: {
           badge: 'mozilla_add_on_store.png',
           alt: 'Mozilla Add-On Store',
-          url: 'https://addons.mozilla.org/en-US/firefox/addon/10-tabs-no-more/',
+          url: 'https://addons.mozilla.org/en-US/firefox/addon/chaos-frontend-toolkit/',
         },
       }
 
       Object.keys(browsers).map((key) => {
-        // document.querySelector(`.installations .alternatives .${key} a`).href = browsers[key].url
+        document.querySelector(`.installations .alternatives .${key} a`).href = browsers[key].url
       })
 
       const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime)
