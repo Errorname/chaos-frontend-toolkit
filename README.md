@@ -3,10 +3,10 @@
 <p align="center">A set of tools to <b>break your web apps</b> and, in doing so, <b>find ways to improve them</b>.</p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/prisma-multi-tenant">
+  <a href="https://www.npmjs.com/package/chaos-frontend-toolkit">
     <img alt="License: Apache 2.0" src="https://img.shields.io/npm/v/chaos-frontend-toolkit?style=flat-square">
   </a>
-  <a href="https://github.com/Errorname/chaos-frontend-toolkit/blob/master/LICENSE">
+  <a href="https://github.com/Errorname/chaos-frontend-toolkit/blob/main/LICENSE.md">
     <img alt="License: Apache 2.0" src="https://img.shields.io/github/license/Errorname/chaos-frontend-toolkit?style=flat-square">
   </a>
   <a href="https://twitter.com/Errorname_">
@@ -188,7 +188,7 @@ chaosFrontendToolkit.blackAndWhite.start()
 
 Copyright © 2021 [Thibaud Courtoison](https://github.com/Errorname).
 
-This project is [Apache 2.0](https://github.com/Errorname/prisma-multi-tenant/blob/master/LICENSE) licensed.
+This project is [Apache 2.0](https://github.com/Errorname/chaos-frontend-toolkit/blob/main/LICENSE.md) licensed.
 
 Flask icon by [Freepik](https://www.freepik.com/)
 UI Icons by [Feather](https://github.com/feathericons/feather)
